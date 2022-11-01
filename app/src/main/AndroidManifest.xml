@@ -14,13 +14,17 @@
         android:theme="@style/Theme.Firebase"
         tools:targetApi="31">
         <activity
-            android:name=".Update"
+            android:name=".Phone"
             android:exported="false" />
         <activity
-            android:name=".AddUser"
+            android:name=".Forget"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Register"
+            android:exported="false"
+            android:parentActivityName=".Login" />
+        <activity
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +32,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Update"
+            android:exported="false" />
+        <activity
+            android:name=".AddUser"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <service android:name=".MyFirebaseService"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+
+            </intent-filter>
+        </service>
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notify"/>
     </application>
 
 </manifest>
